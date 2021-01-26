@@ -2,7 +2,7 @@ name: Build and Release
 
 on:
   schedule:
-    - cron: '0 19 * * 1'
+    - cron: '0 18 * * 2'
   
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1
 
     - name: Build App
-      run: msbuild.exe Sandbox/Sandbox.sln /t:Restore;Build /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="Sandbox"
+      run: msbuild.exe Sandbox/Sandbox.sln /t:Restore /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="Sandbox"
      
     - name: Delete Useless Files
       run: Get-ChildItem -Path "Sandbox\Sandbox\bin\Release" -Exclude "*.exe" | Remove-Item -Force -Confirm:$false
