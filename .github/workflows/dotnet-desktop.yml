@@ -52,4 +52,3 @@ jobs:
         asset_path: 'Sandbox\Sandbox\bin\${{ steps.vars.outputs.app_ver }}.zip'
         asset_name: '${{ steps.vars.outputs.app_ver }}.zip'
         asset_content_type: application/zip
-© 2021 GitHub, Inc.
